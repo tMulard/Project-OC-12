@@ -1,0 +1,32 @@
+.ErrorBody {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.ErrorTitle {
+    font-family: "Aria";
+    font-weight: 700;
+    font-size: 288px;
+    line-height: 410px;
+    color : #FF6060;
+    padding: 30px;
+}
+
+.ErrorText {
+    font-family: "Aria";
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 51px;
+    color : #FF6060;
+    padding: 30px;
+}
+
+.ErrorBody a {
+    font-family: "Aria";
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    text-decoration: underline;
+    color: black;
+    padding: 30px;
+}
