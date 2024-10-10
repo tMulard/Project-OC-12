@@ -3,6 +3,11 @@ import useUserData from '../../hooks/useUserData';
 import './Profile.css'
 import { useEffect } from 'react';
 import KeyCard from '../../components/KeyCard/KeyCard'
+import CalIcon from '../../assets/calories-icon.svg'
+import ProtIcon from '../../assets/protein-icon.svg'
+import CarbIcon from '../../assets/carbs-icon.svg'
+import FatIcon from '../../assets/fat-icon.svg'
+
 
 const Profile = () => {
     const {id} = useParams()
@@ -12,7 +17,7 @@ const Profile = () => {
         setUserId(id)
     },[id])
     
-    if(!user?.userInfos) {
+    if(!user?.userInfos || !user?.todayScore || !user?.keyData) {
         return <div>loading...</div>
     }
 
@@ -20,24 +25,23 @@ const Profile = () => {
         <>
             <section className='Presentation'>
                 <div className="Accueil">
-                    <h1>Bonjour {user.userInfos.firstName}</h1> 
-                      {/* insert name */}
-                    <div className="resultPhrase">
-                    </div>
+                      {/* User's name */}
+                    <h1>Bonjour <h2 className='UserName'>{user.userInfos.firstName}</h2></h1> 
+                    <h2 className="ResultPhrase">Félicitation ! Vous avez explosé vos objectifs hier 👏</h2>
                 </div>
             </section>
             <section className='KeyNumbers'>
-                <KeyCard title="Calories">
-
+                <KeyCard title="Calories" src={`${CalIcon}`}>
+                    {user.keyData.calorieCount}kCal
                 </KeyCard>
-                <KeyCard title="Proteines">
-                    
+                <KeyCard title="Proteines" src={`${ProtIcon}`}>
+                    {user.keyData.proteinCount}g
                 </KeyCard>
-                <KeyCard title="Glucides">
-                      
+                <KeyCard title="Glucides" src={`${CarbIcon}`}>
+                    {user.keyData.carbohydrateCount}g
                 </KeyCard>
-                <KeyCard title="Lipides">
-                      
+                <KeyCard title="Lipides" src={`${FatIcon}`}>
+                    {user.keyData.lipidCount}g
                 </KeyCard>
             </section>
             <section className='Activity'>
