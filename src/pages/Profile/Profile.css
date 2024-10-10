@@ -1,3 +1,31 @@
+.Presentation {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height : 90px;
+    align-items: left;
+    padding : 30px;
+}
+
+.User {
+    font-family: 'Roboto-Bold';
+    font-size: 48px;
+    line-height: 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width : 360px;
+}
+
+.UserName {color: red;}
+
+.ResultPhrase {
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+}
+
 .KeyNumbers {
     display: flex;
     flex-direction: column;

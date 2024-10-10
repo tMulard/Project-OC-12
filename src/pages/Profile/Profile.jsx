@@ -3,61 +3,57 @@ import useUserData from '../../hooks/useUserData';
 import './Profile.css'
 import { useEffect } from 'react';
 import KeyCard from '../../components/KeyCard/KeyCard'
-import CalIcon from '../../assets/calories-icon.svg'
-import ProtIcon from '../../assets/protein-icon.svg'
-import CarbIcon from '../../assets/carbs-icon.svg'
-import FatIcon from '../../assets/fat-icon.svg'
+
+import UserBarChart from '../../components/BarChart/BarChart';
+import UserLineChart from '../../components/LineChart/LineChart';
+import UserRadarChart from '../../components/RadarChart/RadarChart';
+import UserRadialBarChart from '../../components/RadialBarChart/RadialBarChart';
 
 
 const Profile = () => {
     const {id} = useParams()
-    const {setUserId, user} = useUserData()
+    const {setUserId, user, activity, avgSessions, performance} = useUserData()
 
     useEffect(() => {
         setUserId(id)
     },[id])
     
-    if(!user?.userInfos || !user?.todayScore || !user?.keyData) {
+    if(!user?.userInfos || !user?.todayScore || !user?.keyData || !activity || !avgSessions || !performance) {
         return <div>loading...</div>
     }
 
     return (
         <>
             <section className='Presentation'>
-                <div className="Accueil">
-                      {/* User's name */}
-                    <h1>Bonjour <h2 className='UserName'>{user.userInfos.firstName}</h2></h1> 
-                    <h2 className="ResultPhrase">Félicitation ! Vous avez explosé vos objectifs hier 👏</h2>
+                <div className="User">
+                    {/* User's name */}
+                    <h1>Bonjour <span className='UserName'>{user.userInfos.firstName}</span> </h1>
                 </div>
+                <h2 className="ResultPhrase">Félicitation ! Vous avez explosé vos objectifs hier 👏</h2>
             </section>
             <section className='KeyNumbers'>
-                <KeyCard title="Calories" src={`${CalIcon}`}>
+                {/* User's key numbers in card form, containing burnt calories, as well as consumption of proteins, carbs and lipids */}
+                <KeyCard title="Calories" type="calories">
                     {user.keyData.calorieCount}kCal
                 </KeyCard>
-                <KeyCard title="Proteines" src={`${ProtIcon}`}>
+                <KeyCard title="Proteines" type="proteins">
                     {user.keyData.proteinCount}g
                 </KeyCard>
-                <KeyCard title="Glucides" src={`${CarbIcon}`}>
+                <KeyCard title="Glucides" type="carbs">
                     {user.keyData.carbohydrateCount}g
                 </KeyCard>
-                <KeyCard title="Lipides" src={`${FatIcon}`}>
+                <KeyCard title="Lipides" type="">
                     {user.keyData.lipidCount}g
                 </KeyCard>
             </section>
             <section className='Activity'>
-                <div className="BarChart">
-                    <h3>Activité quotidienne</h3>
-
-                </div>
-                <div className="LineChart">
-
-                </div>
-                <div className="RadarChart">
-
-                </div>
-                <div className="RadialBarChart">
-
-                </div>
+                {/* User's activity numbers, in different chart forms */}
+                <h3>Activité quotidienne</h3>
+                <UserBarChart/>
+                <UserLineChart/>
+                <UserRadarChart/>
+                <UserRadialBarChart/>
+                
             </section>
         </>
     );
