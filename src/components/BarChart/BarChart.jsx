@@ -7,8 +7,8 @@ const UserBarChart = () => {
 
     return (
         <BarChart
-          width={500}
-          height={300}
+          width={900}
+          height={260}
           data={activity.sessions}
           margin={{
             top: 5,

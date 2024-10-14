@@ -19,8 +19,8 @@ const UserRadialBarChart = () => {
     console.log(user)
     return (
         <RadialBarChart
-            width={500}
-            height={300}
+            width={258}
+            height={260}
             cx={150}
             cy={150}
             innerRadius={20}

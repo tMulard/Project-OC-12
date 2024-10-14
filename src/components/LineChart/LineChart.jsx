@@ -14,7 +14,7 @@ const UserLineChart = () => {
     const {avgSessions} = useUserData()
 
     return (
-      <LineChart width={500} height={300} data={avgSessions.sessions}>
+      <LineChart width={258} height={260} data={avgSessions.sessions}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="day" padding={{ left: 30, right: 30 }} />
         <YAxis dataKey="sessionLength" />

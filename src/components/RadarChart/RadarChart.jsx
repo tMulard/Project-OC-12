@@ -14,11 +14,11 @@ const UserRadarChart = () => {
     // console.log(performance.data)
     return (
         <RadarChart
-            cx={300}
-            cy={250}
+            cx={100}
+            cy={100}
             outerRadius={150}
-            width={500}
-            height={500}
+            width={258}
+            height={260}
             data={performance.data}
             >
             <PolarGrid />
