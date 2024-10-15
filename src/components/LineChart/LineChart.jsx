@@ -15,7 +15,7 @@ const UserLineChart = () => {
 
     return (
       <LineChart width={258} height={260} data={avgSessions.sessions}>
-        <CartesianGrid strokeDasharray="3 3" />
+        <CartesianGrid strokeDasharray="3 3" fill="red"/>
         <XAxis dataKey="day" padding={{ left: 30, right: 30 }} />
         <YAxis dataKey="sessionLength" />
         <Tooltip />
@@ -23,7 +23,7 @@ const UserLineChart = () => {
         <Line
           type="monotone"
           dataKey="sessionLength"
-          stroke="#8884d8"
+          stroke="white"
           activeDot={{ r: 8 }}
         />
       </LineChart>

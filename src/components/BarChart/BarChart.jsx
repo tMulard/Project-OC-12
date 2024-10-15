@@ -1,4 +1,4 @@
-import { BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import useUserData from '../../hooks/useUserData';
 
 const UserBarChart = () => {
@@ -22,8 +22,8 @@ const UserBarChart = () => {
           <YAxis />
           <Tooltip />
           <Legend />
-          <Bar dataKey="kilogram" fill="#8884d8" activeBar={<Rectangle fill="pink" stroke="blue" />} />
-          <Bar dataKey="calories" fill="#82ca9d" activeBar={<Rectangle fill="gold" stroke="purple" />} />
+          <Bar dataKey="kilogram" fill="black" />
+          <Bar dataKey="calories" fill="red" />
         </BarChart>
     );
   
