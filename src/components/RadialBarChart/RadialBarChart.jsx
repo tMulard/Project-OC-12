@@ -16,7 +16,8 @@ const style = {
 const UserRadialBarChart = () => {
     //   Provider to get whatever data needed
     const {user} = useUserData()
-    console.log(user)
+
+    console.log(user.todayScore)
     return (
         <RadialBarChart
             width={258}
@@ -26,7 +27,7 @@ const UserRadialBarChart = () => {
             innerRadius={20}
             outerRadius={140}
             barSize={10}
-            data={user}
+            data={user.todayScore * 100}
             >
             <RadialBar
                 // minAngle={15}
@@ -36,6 +37,7 @@ const UserRadialBarChart = () => {
                 dataKey="todayScore"
                 // max
             />
+            <PolarRadiusAxis/>
             <PolarAngleAxis
                 tick={false}
                 domain={[0., 1.0]}

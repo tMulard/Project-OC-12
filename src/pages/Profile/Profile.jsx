@@ -27,7 +27,7 @@ const Profile = () => {
       <>
         <section className="Body">
           <SideBar />
-          <section class="App">
+          <section className="App">
             <div className="Presentation">
               <div className="User">
                 {/* User's name */}

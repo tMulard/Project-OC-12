@@ -10,6 +10,8 @@ const UserBarChart = () => {
           width={900}
           height={260}
           data={activity.sessions}
+          barGap={7}
+          barCategoryGap={0}
           margin={{
             top: 5,
             right: 30,
@@ -22,8 +24,8 @@ const UserBarChart = () => {
           <YAxis />
           <Tooltip />
           <Legend />
-          <Bar dataKey="kilogram" fill="black" />
-          <Bar dataKey="calories" fill="red" />
+          <Bar dataKey="kilogram" fill="black" barSize={7} radius={[20, 20, 0, 0]} />
+          <Bar dataKey="calories" fill="red" barSize={7} radius={[20, 20, 0, 0]} />
         </BarChart>
     );
   
