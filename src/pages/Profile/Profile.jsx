@@ -9,6 +9,7 @@ import UserLineChart from '../../components/LineChart/LineChart';
 import UserRadarChart from '../../components/RadarChart/RadarChart';
 import UserRadialBarChart from '../../components/RadialBarChart/RadialBarChart';
 import SideBar from '../../components/SideBar/SideBar';
+import Header from '../../components/Header/Header';
 
 
 const Profile = () => {
@@ -25,6 +26,7 @@ const Profile = () => {
 
     return (
       <>
+        <Header />
         <section className="Body">
           <SideBar />
           <section className="App">

@@ -14,8 +14,8 @@ import { useState } from "react";
 const CustomTooltip = ({payload, active}) => {
   if (!active || !payload) return null
   return (
-    <div className="">
-      <p classname="">{payload[0].payload.sessionLength} min</p>
+    <div className="HoverClass">
+      <p className="HoverValue">{payload[0].payload.sessionLength} min</p>
     </div>
   )
 }
@@ -41,15 +41,22 @@ const UserLineChart = () => {
         //   setActiveValue(e.activePayload[0].payload.index - 1)
         // }}
       >
-        <CartesianGrid strokeDasharray="3 3" fill="red"/>
-        <XAxis dataKey="day" padding={{ left: 30, right: 30 }} />
-        <YAxis dataKey="sessionLength" />
-        <Tooltip content={CustomTooltip} cursor={false} />
+        {/* <CartesianGrid strokeDasharray="3 3" fill="red"/> */}
+        <XAxis 
+        dataKey="day" 
+        padding={{ left: 10, right: 10 }} 
+        />
+        {/*<YAxis 
+        dataKey="sessionLength" 
+        /> */}
+        <Tooltip 
+        content={CustomTooltip} 
+        cursor={false} />
         <Legend />
         <Line
           type="monotone"
           dataKey="sessionLength"
-          stroke="white"
+          stroke="grey"
           activeDot={{ r: 4 }}
           dot={false}
         />

@@ -9,7 +9,6 @@ import Profile from './pages/Profile/Profile.jsx'
 // import Settings from './pages/Settings/Settings.jsx'
 // import Forum from './pages/Forum/Forum.jsx'
 import DataProvider from './provider/DataProvider.jsx'
-import Header from './components/Header/Header.jsx'
 
 
 createRoot(document.getElementById('root')).render(
@@ -17,8 +16,6 @@ createRoot(document.getElementById('root')).render(
     <DataProvider>
       <BrowserRouter basename={import.meta.env.PROD ? "/Project-OC-12/" : "/"}>
           <main className='main'>
-            <Header />
-            
             <Routes>
               <Route path='/' element={<App />} />
               <Route path='/user/:id/profile' element={<Profile />} />

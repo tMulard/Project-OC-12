@@ -37,6 +37,7 @@
     flex-direction: column;
     justify-content: space-evenly;
     max-width : 900px;
+    margin : 0 20px;
 }
 
 .KeyNumbers {
@@ -59,7 +60,26 @@
     height: 260px;
     margin : 10px;
 }
-.LineChartActivity, .RadarChartActivity, .RadialBarChartActivity {
+.LineChartActivity  {
+    width : 258px;
+    height: 260px;
+    background-color : red;
+    border-radius: 20px;
+}
+
+.HoverValue {
+    background-color: #fff;
+    padding : 10px;
+}
+
+.RadarChartActivity {
+    width : 280px;
+    height: 260px;
+    background-color : #282D30;
+    border-radius: 20px;
+}
+
+.RadialBarChartActivity {
     width : 258px;
     height: 260px;
     margin : 10px;

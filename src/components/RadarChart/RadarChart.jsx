@@ -24,11 +24,12 @@ const UserRadarChart = () => {
 
     return (
         <RadarChart
-            cx={100}
-            cy={100}
+            cx={140}
+            cy={130}
             outerRadius="75%"
-            width={258}
+            width={280}
             height={260}
+            
             data={performance.data.map(elem => ({
                 value: elem.value,
                 kind: kindListFR[elem.kind]
@@ -42,6 +43,7 @@ const UserRadarChart = () => {
                 dataKey="value"
                 stroke="red"
                 fill="red"
+                
                 fillOpacity={0.6}
             />
         </RadarChart>
