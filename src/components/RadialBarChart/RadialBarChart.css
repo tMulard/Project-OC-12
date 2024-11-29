@@ -1,4 +1,17 @@
 .UserRadialBarChart {
-    width : 100%;
-    height : auto;
+    width: 100%;
+    height: auto;
+}
+
+
+.radialBarChartContainer {
+    position: relative;
+}
+
+.label {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
