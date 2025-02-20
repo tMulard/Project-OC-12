@@ -1,3 +1,4 @@
+import "./RadarChart.css"
 import {
     Radar,
     RadarChart,
@@ -43,7 +44,6 @@ const UserRadarChart = () => {
                 dataKey="value"
                 stroke="red"
                 fill="red"
-                
                 fillOpacity={0.6}
             />
         </RadarChart>

@@ -2,3 +2,14 @@
     width : 100%;
     height : auto;
 }
+.recharts-cartesian-axis-line, .recharts-cartesian-axis-tick-line {
+    stroke : none;
+}
+
+.recharts-text {
+    fill : white;
+}
+
+.recharts-line-curve {
+    stroke : white;
+}

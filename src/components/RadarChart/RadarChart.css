@@ -1,5 +1,9 @@
 .UserRadarChart {
     width : 100%;
     height : auto;
-    
 }
+
+.recharts-polar-angle-axis-tick-value {
+    fill : white;
+}
+

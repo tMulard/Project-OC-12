@@ -1,3 +1,4 @@
+import "./LineChart.css"
 import {
     LineChart,
     Line,
@@ -41,14 +42,10 @@ const UserLineChart = () => {
         //   setActiveValue(e.activePayload[0].payload.index - 1)
         // }}
       >
-        {/* <CartesianGrid strokeDasharray="3 3" fill="red"/> */}
         <XAxis 
         dataKey="day" 
         padding={{ left: 10, right: 10 }} 
         />
-        {/*<YAxis 
-        dataKey="sessionLength" 
-        /> */}
         <Tooltip 
         content={CustomTooltip} 
         cursor={false} />
@@ -56,7 +53,7 @@ const UserLineChart = () => {
         <Line
           type="monotone"
           dataKey="sessionLength"
-          stroke="grey"
+          stroke="white"
           activeDot={{ r: 4 }}
           dot={false}
         />
