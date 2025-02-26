@@ -56,6 +56,7 @@ const UserLineChart = () => {
           stroke="white"
           activeDot={{ r: 4 }}
           dot={false}
+          name="Duree de session"
         />
       </LineChart>
     );
