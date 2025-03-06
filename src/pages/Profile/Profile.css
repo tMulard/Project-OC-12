@@ -2,6 +2,8 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    min-width: 1024px;
+    min-height: 780px;
 }
 .Presentation {
     display: flex;
@@ -82,5 +84,7 @@
 .RadialBarChartActivity {
     width : 258px;
     height: 260px;
-    margin : 10px;
+    /* margin : 10px; */
+    background-color: #FBFBFB;
+    border-radius: 20px;
 }

@@ -25,7 +25,7 @@ const CustomTooltip = ({payload, active}) => {
 const UserLineChart = () => {
 //   Provider to get whatever data needed
     const {avgSessions} = useUserData()
-    // const [activeValue, setActiveValue] = useState()
+    const [activeValue, setActiveValue] = useState()
 
     const days = "LMMJVSD";
 
@@ -38,9 +38,9 @@ const UserLineChart = () => {
           sessionLength : session.sessionLength,
           index: session.day
         }))}
-        // onMouseMove={(e) => {
-        //   setActiveValue(e.activePayload[0].payload.index - 1)
-        // }}
+        onMouseMove={(e) => {
+          setActiveValue(e.activePayload[0].payload.index - 1)
+        }}
       >
         <XAxis 
         dataKey="day" 
@@ -48,7 +48,8 @@ const UserLineChart = () => {
         />
         <Tooltip 
         content={CustomTooltip} 
-        cursor={false} />
+        cursor={true}
+        />
         <Legend />
         <Line
           type="monotone"
@@ -56,7 +57,7 @@ const UserLineChart = () => {
           stroke="white"
           activeDot={{ r: 4 }}
           dot={false}
-          name="Duree de session"
+          name="Durée de session"
         />
       </LineChart>
     );

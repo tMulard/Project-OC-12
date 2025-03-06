@@ -49,7 +49,7 @@ const UserRadialBarChart = () => {
       </RadialBarChart>
       <div className="label">
         <p className="score">{data[0].x} %</p>
-        <p>de votre objectif</p>
+        <p className="scoreP">de votre objectif</p>
       </div>
     </div>
   );

@@ -13,3 +13,6 @@
 .recharts-line-curve {
     stroke : white;
 }
+.HoverClass {
+    fill: #bbb;
+}

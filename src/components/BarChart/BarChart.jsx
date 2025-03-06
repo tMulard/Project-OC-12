@@ -24,8 +24,8 @@ const UserBarChart = () => {
           <YAxis />
           <Tooltip />
           <Legend />
-          <Bar dataKey="kilogram" fill="black" barSize={7} radius={[20, 20, 0, 0]} />
-          <Bar dataKey="calories" fill="red" barSize={7} radius={[20, 20, 0, 0]} />
+          <Bar dataKey="kilogram" name={"Poids (kg)"} fill="black" barSize={7} radius={[20, 20, 0, 0]} />
+          <Bar dataKey="calories" name={"Calories brûlées (kCal)"} fill="red" barSize={7} radius={[20, 20, 0, 0]} />
         </BarChart>
     );
   
