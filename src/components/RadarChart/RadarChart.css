@@ -7,3 +7,10 @@
     fill : white;
 }
 
+.recharts-polar-radius-axis-tick-value {
+    fill:none;
+}
+
+.radiusAxis {
+    stroke: none;
+}

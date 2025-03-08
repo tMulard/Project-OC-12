@@ -11,6 +11,8 @@ const App = () => {
       <h2>Connectez-vous :</h2>
       <Link to='/user/12/profile'>Karl</Link>
       <Link to='/user/18/profile'>Cecilia</Link>
+      
+      <Link to='/Mockprofile'>Mock version</Link>
    </div>
   )
 }

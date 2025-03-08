@@ -21,13 +21,38 @@ const CustomTooltip = ({payload, active}) => {
   )
 }
 
-
 const UserLineChart = () => {
 //   Provider to get whatever data needed
     const {avgSessions} = useUserData()
     const [activeValue, setActiveValue] = useState()
 
     const days = "LMMJVSD";
+
+    const [hoveredLine, setHoveredLine] = useState(null);
+
+    const renderDot = ({ cx, width, index }) => {
+      const newWidth = width - index;
+  
+      return (
+        <svg
+          x={cx}
+          y={0}
+          width={newWidth}
+          height={300}
+          viewBox={`0 0 ${newWidth} 300`}
+        >
+          <rect
+            x={0}
+            width={newWidth}
+            height={300}
+            fill="grey"
+            opacity={index === hoveredLine ? 0.3 : 0}
+            onMouseEnter={() => setHoveredLine(index)}
+            onMouseLeave={() => setHoveredLine(null)}
+          />
+        </svg>
+      );
+    };
 
     return (
       <LineChart
@@ -38,9 +63,9 @@ const UserLineChart = () => {
           sessionLength : session.sessionLength,
           index: session.day
         }))}
-        onMouseMove={(e) => {
-          setActiveValue(e.activePayload[0].payload.index - 1)
-        }}
+        // onMouseMove={(e) => {
+        //   setActiveValue(e.activePayload[0].payload.index - 1)
+        // }}
       >
         <XAxis 
         dataKey="day" 
@@ -48,16 +73,16 @@ const UserLineChart = () => {
         />
         <Tooltip 
         content={CustomTooltip} 
-        cursor={true}
         />
-        <Legend />
+        <Legend/>
         <Line
           type="monotone"
           dataKey="sessionLength"
           stroke="white"
           activeDot={{ r: 4 }}
-          dot={false}
-          name="Durée de session"
+          dot={renderDot}
+          name="Durée moyenne des sessions"
+          
         />
       </LineChart>
     );

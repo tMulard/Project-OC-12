@@ -2,7 +2,7 @@
     width : 100%;
     height : auto;
 }
-.recharts-cartesian-axis-line, .recharts-cartesian-axis-tick-line {
+.recharts-cartesian-axis-line, .recharts-cartesian-axis-tick-line, .recharts-legend-icon {
     stroke : none;
 }
 
@@ -16,3 +16,4 @@
 .HoverClass {
     fill: #bbb;
 }
+
