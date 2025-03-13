@@ -45,7 +45,7 @@ const UserLineChart = () => {
             x={0}
             width={newWidth}
             height={300}
-            fill="grey"
+            fill='rgba(1.0,0.1,0.1,0.25)'
             opacity={index === hoveredLine ? 0.3 : 0}
             onMouseEnter={() => setHoveredLine(index)}
             onMouseLeave={() => setHoveredLine(null)}
@@ -73,6 +73,7 @@ const UserLineChart = () => {
         />
         <Tooltip 
         content={CustomTooltip} 
+        cursor={false}
         />
         <Legend/>
         <Line
