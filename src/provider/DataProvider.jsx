@@ -1,8 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import userMockData from "../mock/user.json";
-import activityMockData from "../mock/activity.json";
-import averageMockData from "../mock/average-sessions.json";
-import performanceMockData from "../mock/performance.json";
+import { getActivityResponse, getAvgSessionsResponse, getPerformanceResponse, getUserResponse } from "../lib/query";
 
 export const DataContext = createContext({
   user: {},
@@ -10,6 +7,8 @@ export const DataContext = createContext({
   avgSessions: {},
   performance: {},
   setUserId: () => {},
+  setIsMockData: () => {},
+  isMockData: Boolean,
 });
 
 const DataProvider = ({ children }) => {
@@ -18,84 +17,54 @@ const DataProvider = ({ children }) => {
   const [activity, setActivity] = useState();
   const [avgSessions, setAvgSessions] = useState();
   const [performance, setPerformance] = useState();
-
-  const env = process.env.NODE_ENV; // permet de savoir si on est en dev ou en prod
-  // const env = "production";
-
-  if (env === "development") {
-    console.log({env});
-  }
+  const [isMockData, setIsMockData] = useState(true);
 
   const getUser = async () => {
-    if (env === "development") {
-      const data = userMockData.data;
-      setUser(data);
-    } else {
-      const response = await fetch(`http://localhost:3000/user/${userId}`);
-      if (response.status === 404) {
-        window.location.href = "/error";
-      }
-      const data = await response.json();
-      setUser(data.data);
-    }
-  };
+    const userData = await getUserResponse(isMockData, userId);
+    setUser(userData);
+  }
+
   const getActivity = async () => {
-    if (env === "development") {
-      const data = activityMockData.data;
-      setActivity(data);
-    } else {
-      const response = await fetch(
-        `http://localhost:3000/user/${userId}/activity`
-      );
-      if (response.status === 404) {
-        window.location.href = "/error";
-      }
-      const data = await response.json();
-      setActivity(data.data);
-    }
-  };
+    const activityData = await getActivityResponse(isMockData, userId);
+    setActivity(activityData);
+  }
+
   const getAvgSessions = async () => {
-    if (env === "development") {
-      const data = averageMockData.data;
-      setAvgSessions(data);
-    } else {
-      const response = await fetch(
-        `http://localhost:3000/user/${userId}/average-sessions`
-      );
-      if (response.status === 404) {
-        window.location.href = "/error";
-      }
-      const data = await response.json();
-      setAvgSessions(data.data);
-    }
-  };
+    const averageData = await getAvgSessionsResponse(isMockData, userId);
+    setAvgSessions(averageData);
+  }
+
   const getPerformance = async () => {
-    if (env === "development") {
-      const data = performanceMockData.data;
-      setPerformance(data);
-    } else {
-      const response = await fetch(
-        `http://localhost:3000/user/${userId}/performance`
-      );
-      if (response.status === 404) {
-        window.location.href = "/error";
-      }
-      const data = await response.json();
-      setPerformance(data.data);
-    }
-  };
+    const performanceData = await getPerformanceResponse(isMockData, userId);
+    setPerformance(performanceData);
+  }
 
   useEffect(() => {
-    if (!userId) return;
-    getUser();
-    getActivity();
-    getAvgSessions();
-    getPerformance();
-  }, [userId]);
+    if (process.env.NODE_ENV === "production") {
+      // on est sûr qu'en prod on ait les données API
+      setIsMockData(false);
+    }
+  }, []);
+
+  useEffect(() => {
+      if (!userId) return;
+      getUser();
+      getActivity();
+      getAvgSessions();
+      getPerformance();
+  }, [userId, isMockData]);
 
   return (
     <DataContext.Provider
-      value={{ user, activity, avgSessions, performance, setUserId }}
+      value={{
+        user,
+        activity,
+        avgSessions,
+        performance,
+        setUserId,
+        setIsMockData,
+        isMockData,
+      }}
     >
       {children}
     </DataContext.Provider>

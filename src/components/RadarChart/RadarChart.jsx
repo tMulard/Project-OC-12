@@ -12,7 +12,6 @@ import useUserData from '../../hooks/useUserData';
 const UserRadarChart = () => {
     //   Provider to get whatever data needed
     const {performance} = useUserData()
-    // console.log(performance.data)
 
     const kindListFR = {
         1: "Cardio",
