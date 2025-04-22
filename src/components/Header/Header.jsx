@@ -13,8 +13,6 @@ const Header = () => {
         setUserId(id)
     },[id])
 
-
-
     return (
         <div className='NavBar'>
             <img src={logo} alt="logo" />

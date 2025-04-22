@@ -2,15 +2,14 @@ import { useParams } from 'react-router-dom';
 import useUserData from '../../hooks/useUserData';
 import './Profile.css'
 import { useEffect } from 'react';
+//import des composants
 import KeyCard from '../../components/KeyCard/KeyCard'
-
 import UserBarChart from '../../components/BarChart/BarChart';
 import UserLineChart from '../../components/LineChart/LineChart';
 import UserRadarChart from '../../components/RadarChart/RadarChart';
 import UserRadialBarChart from '../../components/RadialBarChart/RadialBarChart';
 import SideBar from '../../components/SideBar/SideBar';
 import Header from '../../components/Header/Header';
-
 
 const Profile = () => {
     const {id} = useParams()

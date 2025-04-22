@@ -1,5 +1,5 @@
 import useUserData from "../hooks/useUserData";
-
+//fichier correspondant au switch mock/API
 export const DataSwitcher = () => {
   const { isMockData, setIsMockData } = useUserData();
 

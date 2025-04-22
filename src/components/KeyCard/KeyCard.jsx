@@ -22,7 +22,6 @@ const KeyCard = ({title, type, children}) => {
             break;
     } 
 
-
     return (
         <div className='KeyCard'>
             <img src={src} alt="KeyCard-icon" />

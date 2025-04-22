@@ -3,14 +3,11 @@ import {
     LineChart,
     Line,
     XAxis,
-    YAxis,
-    CartesianGrid,
     Tooltip,
     Legend,
   } from "recharts";
 import useUserData from '../../hooks/useUserData';
 import { useState } from "react";
-
 
 const CustomTooltip = ({payload, active}) => {
   if (!active || !payload) return null
@@ -83,7 +80,6 @@ const UserLineChart = () => {
           activeDot={{ r: 4 }}
           dot={renderDot}
           name="Durée moyenne des sessions"
-          
         />
       </LineChart>
     );

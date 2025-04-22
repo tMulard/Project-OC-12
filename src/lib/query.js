@@ -3,6 +3,8 @@ import userMockData from "../mock/user.json";
 import averageMockData from "../mock/average-sessions.json";
 import performanceMockData from "../mock/performance.json";
 
+//ici les fonctions permettant de fetch les data, à appeler par le provider
+
 export const getActivityResponse = async (isMockData, userId) => {
   if (isMockData) {
     return activityMockData.data;

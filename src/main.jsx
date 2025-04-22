@@ -10,7 +10,6 @@ import Profile from './pages/Profile/Profile.jsx'
 // import Forum from './pages/Forum/Forum.jsx'
 import DataProvider from './provider/DataProvider.jsx'
 
-
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <DataProvider>

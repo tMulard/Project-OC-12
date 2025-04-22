@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { getActivityResponse, getAvgSessionsResponse, getPerformanceResponse, getUserResponse } from "../lib/query";
-
+//fichier de service pour le site
 export const DataContext = createContext({
   user: {},
   activity: {},
@@ -18,7 +18,7 @@ const DataProvider = ({ children }) => {
   const [avgSessions, setAvgSessions] = useState();
   const [performance, setPerformance] = useState();
   const [isMockData, setIsMockData] = useState(true);
-
+//fonctions appelant les sections de données correspondant à l'id transmis, les résultats diffèrent selon si l'on est en prod ou dev
   const getUser = async () => {
     const userData = await getUserResponse(isMockData, userId);
     setUser(userData);
@@ -41,7 +41,7 @@ const DataProvider = ({ children }) => {
 
   useEffect(() => {
     if (process.env.NODE_ENV === "production") {
-      // on est sûr qu'en prod on ait les données API
+      // on est sûr qu'en prod on ait les données de l'API
       setIsMockData(false);
     }
   }, []);
