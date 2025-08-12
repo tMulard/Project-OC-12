@@ -6,50 +6,65 @@ import performanceMockData from "../mock/performance.json";
 //ici les fonctions permettant de fetch les data, à appeler par le provider
 
 export const getActivityResponse = async (isMockData, userId) => {
-  if (isMockData) {
-    return activityMockData.data;
-  }
-
-  const activityResponse = await fetch(
-    `http://localhost:3000/user/${userId}/activity`
-  );
-  if (activityResponse.status === 404) {
+  try {
+    const activityResponse = await fetch(
+      `http://localhost:3000/user/${userId}/activity`
+    );
+    const activityData = await activityResponse.json();
+    return activityData.data;
+  } catch (isMockData) {
+    const activityData = await activityMockData;
+    return activityData.data;
+  } finally {
     window.location.href = "/error";
   }
-  const activityData = await activityResponse.json();
-  return activityData.data;
 };
 
 export const getAvgSessionsResponse = async (isMockData, userId) => {
-  if (isMockData) {
-    return averageMockData.data;
-  }
-
-  const sessionResponse = await fetch(
-    `http://localhost:3000/user/${userId}/average-sessions`
-  );
-  if (sessionResponse.status === 404) {
+  try {
+    const sessionResponse = await fetch(
+      `http://localhost:3000/user/${userId}/average-sessions`
+    );
+    const sessionData = await sessionResponse.json();
+    return sessionData.data;
+  } catch (isMockData) {
+    const sessionData = await averageMockData;
+    return sessionData.data;
+  } finally {
     window.location.href = "/error";
   }
-  const sessionData = await sessionResponse.json();
-  return sessionData.data;
 };
 
 export const getPerformanceResponse = async (isMockData, userId) => {
-  if (isMockData) {
-    return performanceMockData.data;
-  }
-
-  const performanceResponse = await fetch(
-    `http://localhost:3000/user/${userId}/performance`
-  );
-  if (performanceResponse.status === 404) {
+  try {
+    const performanceResponse = await fetch(
+      `http://localhost:3000/user/${userId}/performance`
+    );
+    const performanceData = await performanceResponse.json();
+    return performanceData.data;
+  } catch (isMockData) {
+    const performanceData = await performanceMockData;
+    return performanceData.data;
+  } finally {
     window.location.href = "/error";
   }
-  const performanceData = await performanceResponse.json();
-  return performanceData.data;
 };
 
+export const getUserResponse = async (isMockData, userId) => {
+  try {
+    const userResponse = await fetch(`http://localhost:3000/user/${userId}`);
+    const userData = await userResponse.json();
+    return userData.data;
+  } catch (isMockData) {
+    const userData = await userMockData;
+    return userData.data;
+  } finally {
+    window.location.href = "/error";
+  }
+};
+
+/*
+ancienne forme de la fonction :
 export const getUserResponse = async (isMockData, userId) => {
   if (isMockData) {
     return userMockData.data;
@@ -61,3 +76,4 @@ export const getUserResponse = async (isMockData, userId) => {
   const userData = await userResponse.json();
   return userData.data;
 };
+*/

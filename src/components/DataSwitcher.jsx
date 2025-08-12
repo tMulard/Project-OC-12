@@ -5,13 +5,13 @@ export const DataSwitcher = () => {
 
   if (process.env.NODE_ENV === "production") return null; // impossible de switch en PROD
 
-  const handleClick = () => {
-    setIsMockData(!isMockData);
-  };
+  // const handleClick = () => {
+  //   setIsMockData(!isMockData);
+  // };
 
   return (
-    <button
-      onClick={handleClick}
+    <span
+      //onClick={handleClick}
       style={{
         position: "fixed",
         top: "100px",
@@ -19,6 +19,6 @@ export const DataSwitcher = () => {
       }}
     >
       data from: {isMockData ? "mock" : "api"}
-    </button>
+    </span>
   );
 };
