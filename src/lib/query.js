@@ -16,7 +16,7 @@ export const getActivityResponse = async (isMockData, userId) => {
     const activityData = await activityMockData;
     return activityData.data;
   } finally {
-    window.location.href = "/error";
+    if (isMockData === false) window.location.href = "/error";
   }
 };
 
@@ -31,7 +31,7 @@ export const getAvgSessionsResponse = async (isMockData, userId) => {
     const sessionData = await averageMockData;
     return sessionData.data;
   } finally {
-    window.location.href = "/error";
+    if (isMockData === false) window.location.href = "/error";
   }
 };
 
@@ -46,7 +46,7 @@ export const getPerformanceResponse = async (isMockData, userId) => {
     const performanceData = await performanceMockData;
     return performanceData.data;
   } finally {
-    window.location.href = "/error";
+    if (isMockData === false) window.location.href = "/error";
   }
 };
 
@@ -59,7 +59,7 @@ export const getUserResponse = async (isMockData, userId) => {
     const userData = await userMockData;
     return userData.data;
   } finally {
-    window.location.href = "/error";
+    if (isMockData === false) window.location.href = "/error";
   }
 };
 

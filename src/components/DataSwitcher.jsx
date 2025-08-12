@@ -8,7 +8,7 @@ export const DataSwitcher = () => {
   // const handleClick = () => {
   //   setIsMockData(!isMockData);
   // };
-
+  
   return (
     <span
       //onClick={handleClick}

@@ -18,7 +18,7 @@ const UserBarChart = () => {
     //   Provider to get whatever data needed
     const {activity} = useUserData()
     const [activeValue, setActiveValue] = useState()
-
+    
     return (
         <BarChart
           width={900}

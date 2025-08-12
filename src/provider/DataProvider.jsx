@@ -39,12 +39,12 @@ const DataProvider = ({ children }) => {
     setPerformance(performanceData);
   }
 
-  // useEffect(() => {
-  //   if (process.env.NODE_ENV === "production") {
-  //     // on est sûr qu'en prod on ait les données de l'API
-  //     setIsMockData(true);
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (process.env.NODE_ENV === "production") {
+      // on est sûr qu'en prod on ait les données de l'API
+      setIsMockData(false);
+    }
+  }, []);
 
   useEffect(() => {
       if (!userId) return;
