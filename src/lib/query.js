@@ -11,13 +11,12 @@ export const getActivityResponse = async (isMockData, userId) => {
       `http://localhost:3000/user/${userId}/activity`
     );
     const activityData = await activityResponse.json();
-    console.log(activityData)
     return activityData.data;
   } catch {
-    return null;
-  } finally {
     const activityData = await activityMockData;
     return activityData.data;
+  } finally {
+    return null;
   }
 };
 
@@ -27,13 +26,12 @@ export const getAvgSessionsResponse = async (isMockData, userId) => {
       `http://localhost:3000/user/${userId}/average-sessions`
     );
     const sessionData = await sessionResponse.json();
-    console.log(sessionData)
     return sessionData.data;
   } catch {
-    return null;
-  } finally {
     const sessionData = await averageMockData;
     return sessionData.data;
+  } finally {
+    return null;
   }
 };
 
@@ -43,13 +41,12 @@ export const getPerformanceResponse = async (isMockData, userId) => {
       `http://localhost:3000/user/${userId}/performance`
     );
     const performanceData = await performanceResponse.json();
-    console.log(performanceData)
     return performanceData.data;
   } catch {
-    return null;
-  } finally {
     const performanceData = await performanceMockData;
     return performanceData.data;
+  } finally {
+    return null;
   }
 };
 
@@ -60,10 +57,10 @@ export const getUserResponse = async (isMockData, userId) => {
     console.log(userData)
     return userData.data;
   } catch {
-    return null;
-  } finally {
     const userData = await userMockData;
     return userData.data;
+  } finally {
+    return null;
   }
 };
 

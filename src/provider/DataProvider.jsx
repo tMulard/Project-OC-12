@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { getActivityResponse, getAvgSessionsResponse, getPerformanceResponse, getUserResponse } from "../lib/query";
-import { isCommonAssetRequest } from "msw";
+
 //fichier de service pour le site
 export const DataContext = createContext({
   user: {},
@@ -22,6 +22,7 @@ const DataProvider = ({ children }) => {
 //fonctions appelant les sections de données correspondant à l'id transmis, les résultats diffèrent selon si l'on est en prod ou dev
   const getUser = async () => {
     const userData = await getUserResponse(isMockData, userId);
+    console.log(userData)
     if (userData) setUser(userData);
     else console.log("Error, no user data found")
   }
@@ -44,12 +45,12 @@ const DataProvider = ({ children }) => {
     else console.log("Error, no performance data found")
   }
 
-  // useEffect(() => {
-  //   if (process.env.NODE_ENV === "production") {
-  //     // on est sûr qu'en prod on ait les données de l'API
-  //     setIsMockData(true);
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (process.env.NODE_ENV === "production") {
+      // on est sûr qu'en prod on ait les données de l'API
+      setIsMockData(true);
+    }
+  }, []);
 
   useEffect(() => {
       if (!userId) return;
