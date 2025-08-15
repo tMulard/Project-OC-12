@@ -20,7 +20,7 @@ const Header = () => {
             <Link to={`/user/${id}/profile`}>Profil</Link>
             <Link to={`/user/${id}/settings`}>Réglages</Link>
             <Link to={`/user/${id}/forum`}>Communauté</Link>
-            <DataSwitcher />
+            {/* <DataSwitcher /> */}
         </div>
     )
 }

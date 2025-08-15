@@ -15,9 +15,8 @@ export const getActivityResponse = async (isMockData, userId) => {
   } catch {
     const activityData = await activityMockData;
     return activityData.data;
-  } finally {
-    return null;
   }
+  return null;
 };
 
 export const getAvgSessionsResponse = async (isMockData, userId) => {
@@ -30,9 +29,8 @@ export const getAvgSessionsResponse = async (isMockData, userId) => {
   } catch {
     const sessionData = await averageMockData;
     return sessionData.data;
-  } finally {
-    return null;
   }
+  return null;
 };
 
 export const getPerformanceResponse = async (isMockData, userId) => {
@@ -45,9 +43,8 @@ export const getPerformanceResponse = async (isMockData, userId) => {
   } catch {
     const performanceData = await performanceMockData;
     return performanceData.data;
-  } finally {
-    return null;
   }
+  return null;
 };
 
 export const getUserResponse = async (isMockData, userId) => {
@@ -59,9 +56,8 @@ export const getUserResponse = async (isMockData, userId) => {
   } catch {
     const userData = await userMockData;
     return userData.data;
-  } finally {
-    return null;
   }
+  return null;
 };
 
 /*
